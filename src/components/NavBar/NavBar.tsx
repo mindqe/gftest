@@ -1,15 +1,21 @@
+import { useHistory } from 'react-router-dom';
 import './NavBar.css';
-import { selectLoadingEpisodes } from '@src/store/reducers/podcastSlice/podcastSlice';
+import { useAppSelector } from '@src/store/store';
 
 const NavBar = () => {
-    const load = selectLoadingEpisodes
+    const loadingState = useAppSelector(store => store.podcastSlice.loading)
+    const history = useHistory();
+    const handleNavbarClick = () => {
+        history.push('/');
+    }
+
     return (
         <div className='podcast-navbar-container'>
-            <div className="podcast-navbar-title">
+            <div className="podcast-navbar-title" onClick={handleNavbarClick}>
                 Podcaster
             </div>
             <div>
-            {!load ? "Loaded" : "Loadin..." }
+            {loadingState? "Loaded" : "Loadin..." }
             </div>
         </div>
       
