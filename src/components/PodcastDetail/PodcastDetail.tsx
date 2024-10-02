@@ -39,7 +39,7 @@ const PodcastDetail = (): React.ReactNode => {
   }, [dispatch, podcast]);
 
   return (
-    <div className="podcast-detal-container">
+    <div className="podcast-detail-container">
       <div className="podcast-detail-main">
         <PodcastInfoBox id={params?.id} />
         <div className="podcast-detail-episode">

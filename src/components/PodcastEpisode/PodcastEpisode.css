@@ -24,6 +24,8 @@
     -moz-box-shadow: 0px 3px 12px -3px #cdc6c6;
     box-shadow: 0px 3px 12px -3px #cdc6c6;
     padding: 20px;
+    flex: auto;          
+    margin: 10px;   
    
 }
 
