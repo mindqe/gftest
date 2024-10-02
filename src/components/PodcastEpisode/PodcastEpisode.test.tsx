@@ -48,26 +48,26 @@ describe("PodcastEpisode Component", () => {
     jest.clearAllMocks();
   });
 
-  it("renders the podcast info box", () => {
+  describe("renders the podcast info box", () => {
     render(<PodcastEpisode />);
 
     expect(screen.getByText("Podcast Info")).toBeInTheDocument();
   });
 
-  it("displays the episode name and description when episode is found", () => {
+  describe("displays the episode name and description when episode is found", () => {
     render(<PodcastEpisode />);
 
     expect(screen.getByText("Episode 1")).toBeInTheDocument();
     expect(screen.getByText("This is episode 1 description")).toBeInTheDocument();
   });
 
-  it("renders the podcast player with the correct asset URL", () => {
+  describe("renders the podcast player with the correct asset URL", () => {
     render(<PodcastEpisode />);
 
     expect(screen.getByText("Podcast Player")).toBeInTheDocument();
   });
 
-  it("does not render episode details if episode is not found", () => {
+  describe("does not render episode details if episode is not found", () => {
     (useAppSelector as jest.Mock).mockReturnValue({ data: [] });
 
     render(<PodcastEpisode />);

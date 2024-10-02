@@ -16,7 +16,7 @@ describe('PodcastSearch Component', () => {
     jest.clearAllMocks();
   });
 
-  test('renders the component correctly', () => {
+  describe('renders the component correctly', () => {
     render(
       <PodcastSearch
         filteredPodcasts={filteredPodcasts}
@@ -33,7 +33,7 @@ describe('PodcastSearch Component', () => {
     expect(badgeElement).toBeInTheDocument();
   });
 
-  test('displays the correct number of filtered podcasts', () => {
+  describe('displays the correct number of filtered podcasts', () => {
     render(
       <PodcastSearch
         filteredPodcasts={filteredPodcasts}
@@ -46,7 +46,7 @@ describe('PodcastSearch Component', () => {
     expect(badgeElement).toHaveTextContent(filteredPodcasts.length.toString());
   });
 
-  test('calls setSearchTerm with the correct value when typing', () => {
+  describe('calls setSearchTerm with the correct value when typing', () => {
     render(
       <PodcastSearch
         filteredPodcasts={filteredPodcasts}
@@ -62,7 +62,7 @@ describe('PodcastSearch Component', () => {
     expect(mockSetSearchTerm).toHaveBeenCalledWith('new search');
   });
 
-  test('matches the snapshot', () => {
+  describe('matches the snapshot', () => {
     const { container } = render(
       <PodcastSearch
         filteredPodcasts={filteredPodcasts}

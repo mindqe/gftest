@@ -3,7 +3,7 @@ import { useAppSelector } from "@src/store/store";
 const PodcastInfoBox = (props: { id: string | undefined }) => {
   const podcasts = useAppSelector((state) => state.podcastSlice.podcasts);
 
-  const parentPodcastEntry = podcasts?.feed.podcasts.find(
+  const parentPodcastEntry = podcasts?.feed?.podcasts.find(
     (entry) => entry.id.attributes["im:id"] === props.id
   );
 

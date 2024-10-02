@@ -13,7 +13,8 @@ import PodcastInfoBox from "../sharedComponents/PodcastInfoBox/PodcastInfoBox";
 type QueryParams = { id: string };
 
 const PodcastDetail = (): React.ReactNode => {
-  const { id } = useParams<QueryParams>();
+  const params = useParams<QueryParams>();
+  console.log(params, 'PARAMS DETAIL')
   const dispatch = useAppDispatch();
   const podcast = useAppSelector((state) => state.podcastSlice.podcast);
   const podcasts = useAppSelector((state) => state.podcastSlice.podcasts);
@@ -21,52 +22,58 @@ const PodcastDetail = (): React.ReactNode => {
   const history = useHistory();
 
   const parentPodcastEntry = podcasts?.feed?.podcasts.find(
-    (entry) => entry.id.attributes["im:id"] === id
+    (entry) => entry.id.attributes["im:id"] === params?.id
   );
 
   const handleEpisodeClick = (id: string) => {
-    history.push(`/podcast/${parentPodcastEntry?.id.attributes["im:id"]}/episode/${id}`);
+    history.push(
+      `/podcast/${parentPodcastEntry?.id.attributes["im:id"]}/episode/${id}`
+    );
   };
 
   useEffect(() => {
     if (!podcast) {
-      dispatch(fetchPodcastDetail(id));
-      dispatch(fetchPodcastEpisodes(id));
+      dispatch(fetchPodcastDetail(params?.id));
+      dispatch(fetchPodcastEpisodes(params?.id));
     }
   }, [dispatch, podcast]);
-
 
   return (
     <div className="podcast-detal-container">
       <div className="podcast-detail-main">
-        <PodcastInfoBox id={id}/>
+        <PodcastInfoBox id={params?.id} />
         <div className="podcast-detail-episode">
           <div className="podcast-detail-episode-title">
             Episodes of {parentPodcastEntry?.podcastArtist.label}
           </div>
           <table>
             <thead>
-            <tr>
-              <th>Title</th>
-              <th>Date</th>
-              <th>Duration</th>
+              <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Duration</th>
               </tr>
             </thead>
-       
             <tbody>
-            
-            {episode?.data && episode.data.length > 0 ? (
-              episode.data.map((item) => (
-                <tr className="podcast-episode-item" key={item.id} onClick={() => handleEpisodeClick(item.id)}>
-                  <td>{item.attributes.name}</td>
-                  <td>{useDateFormat(item.attributes.releaseDateTime)}</td>
-                  <td>{useConvertTime(item.attributes.durationInMilliseconds)}</td>
+              {episode?.data && episode.data.length > 0 ? (
+                episode.data.map((item) => (
+                  <tr
+                    className="podcast-episode-item"
+                    key={item.id}
+                    onClick={() => handleEpisodeClick(item.id)}
+                  >
+                    <td data-testid="episode-name">{item.attributes.name}</td>
+                    <td>{useDateFormat(item.attributes.releaseDateTime)}</td>
+                    <td>
+                      {useConvertTime(item.attributes.durationInMilliseconds)}
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td>Loading Episodes...</td>
                 </tr>
-              ))
-            ) : (
-              <tr><td>Loading Episodes...</td></tr>
-            )}
-            
+              )}
             </tbody>
           </table>
         </div>

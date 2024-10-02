@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import { rootReducer } from "@src/store/reducers/rootReducer";
 
-// Mock the Redux store and slice for testing
 const mockStore = (initialState: any) => {
   return configureStore({
     reducer: rootReducer.podcastSlice,
@@ -13,7 +12,6 @@ const mockStore = (initialState: any) => {
   });
 };
 
-// Mock the useAppSelector hook
 jest.mock("@src/store/store", () => ({
   ...jest.requireActual("@src/store/store"),
   useAppSelector: jest.fn(),
@@ -37,7 +35,7 @@ describe("PodcastInfoBox component", () => {
     },
   };
 
-  it("should render the podcast details when a valid id is provided", () => {
+  describe("should render the podcast details when a valid id is provided", () => {
     (useAppSelector as jest.Mock).mockReturnValue(mockPodcastData);
 
     render(
@@ -52,7 +50,7 @@ describe("PodcastInfoBox component", () => {
     expect(screen.getByText("Podcast description")).toBeInTheDocument();
   });
 
-  it("should render nothing when no podcast matches the provided id", () => {
+  describe("should render nothing when no podcast matches the provided id", () => {
     (useAppSelector as jest.Mock).mockReturnValue(mockPodcastData);
 
     render(

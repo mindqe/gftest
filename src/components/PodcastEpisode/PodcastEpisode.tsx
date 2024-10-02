@@ -17,7 +17,7 @@ const PodcastEpisode = () => {
   const matchArtist = params?.url?.match(regexArtist);
   const episodeId = matchEpisode?.[1];
   const artistId = matchArtist?.[1];
-  console.log(artistId, episodeId, "BUBU");
+
   const episodes = useAppSelector((state) => state.podcastSlice.episodes);
 
   useEffect(() => {
