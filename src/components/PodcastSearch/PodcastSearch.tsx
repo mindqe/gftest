@@ -11,7 +11,7 @@ const PodcastSearch = ({
 }) => {
   return (
     <div className="podcast-search-main">        
-      <span className="podcast-search-badge">
+      <span data-testid='podcast-badge' className="podcast-search-badge">
         {filteredPodcasts?.length}
       </span>
       <input

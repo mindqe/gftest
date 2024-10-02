@@ -72,7 +72,7 @@ describe("PodcastEpisode Component", () => {
 
     render(<PodcastEpisode />);
 
-    expect(screen.queryByText("Episode 1")).not.toBeInTheDocument();
+    expect(screen.getAllByTestId("episode-name")).not.toBeInTheDocument();
     expect(screen.queryByText("This is episode 1 description")).not.toBeInTheDocument();
   });
 });

@@ -32,7 +32,7 @@ const PodcastEpisode = () => {
       <div className="podcast-episode-main-player">
         <PodcastInfoBox id={artistId} />
         <div className="podcast-episode-inner-player">
-          <div className="podcast-episode-name">
+          <div data-testid='episode-name' className="podcast-episode-name">
             {foundEpisode?.attributes.name}
           </div>
           <div className="podcast-episode-description">

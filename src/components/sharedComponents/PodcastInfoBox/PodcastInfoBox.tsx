@@ -10,7 +10,7 @@ const PodcastInfoBox = (props: { id: string | undefined }) => {
   return (
     <div className="podcast-detail-main-info">
       <div className="podcast-detail-main-image">
-        <img src={`${parentPodcastEntry?.podcastImage[2].label}`} />
+        <img alt="podcast-image" src={`${parentPodcastEntry?.podcastImage[2].label}`} />
       </div>
       <div className="podcast-detail-main-title">
         {parentPodcastEntry?.podcastArtist.label}

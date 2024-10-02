@@ -46,7 +46,9 @@ interface PodcastState {
   podcasts: ResponseMappedModel | null;
   podcast: PodcastDetailModel | null;
   episodes: PodcastEpisodeModel | null,
-  loading: boolean;
+  loadingPodcasts: boolean;
+  loadingPodcast: boolean;
+  loadingEpisodes: boolean;
   error: string | null;
 }
 
@@ -54,7 +56,9 @@ const initialState: PodcastState = {
   podcasts: null,
   podcast: null,
   episodes: null,
-  loading: false,
+  loadingPodcasts: false,
+  loadingPodcast: false,
+  loadingEpisodes: false,
   error: null
 };
 
@@ -66,48 +70,48 @@ const podcastSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchPodcastList.pending, (state) => {
-      state.loading = true;
+      state.loadingPodcasts = true;
       state.error = null;
     });
     builder.addCase(fetchPodcastList.fulfilled, (state, action: PayloadAction<ResponseMappedModel>) => {
       return {
         ...state, // Persist the previous global state
         podcasts: { ...(state.podcasts || {}), ...action.payload }, // Update episodes with previous and new data
-        loading: false, // Set loading to false
+        loadingPodcasts: false, // Set loading to false
       };
     });
     builder.addCase(fetchPodcastList.rejected, (state, action) => {
-      state.loading = false;
+      state.loadingPodcasts = false;
       state.error = action.payload as string;
     });
     builder.addCase(fetchPodcastDetail.pending, (state) => {
-      state.loading = true;
+      state.loadingPodcast = true;
       state.error = null;
     });
     builder.addCase(fetchPodcastDetail.fulfilled, (state, action: PayloadAction<PodcastDetailModel>) => {
       return {
         ...state, // Persist the previous global state
         podcast: { ...(state.podcast || {}), ...action.payload }, // Update podcast with previous and new data
-        loading: false, // Set loading to false
+        loadingPodcast: false, // Set loading to false
       };
     });
     builder.addCase(fetchPodcastDetail.rejected, (state, action) => {
-      state.loading = false;
+      state.loadingPodcast = false;
       state.error = action.payload as string;
     });
     builder.addCase(fetchPodcastEpisodes.pending, (state) => {
-      state.loading = true;
+      state.loadingEpisodes = true;
       state.error = null;
     });
     builder.addCase(fetchPodcastEpisodes.fulfilled, (state, action: PayloadAction<PodcastEpisodeModel>) => {
       return {
         ...state, // Persist the previous global state
         episodes: { ...(state.episodes || {}), ...action.payload }, // Update episodes with previous and new data
-        loading: false, // Set loading to false
+        loadingEpisodes: false, // Set loading to false
       };
     });
     builder.addCase(fetchPodcastEpisodes.rejected, (state, action) => {
-      state.loading = false;
+      state.loadingEpisodes = false;
       state.error = action.payload as string;
     });
   },

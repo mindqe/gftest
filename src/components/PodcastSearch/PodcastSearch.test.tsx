@@ -42,7 +42,7 @@ describe('PodcastSearch Component', () => {
       />
     );
 
-    const badgeElement = screen.getByText(filteredPodcasts.length.toString());
+    const badgeElement = screen.getAllByTestId('podcast-badge');
     expect(badgeElement).toHaveTextContent(filteredPodcasts.length.toString());
   });
 

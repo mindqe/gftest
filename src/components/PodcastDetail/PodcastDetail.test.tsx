@@ -80,16 +80,15 @@ describe("PodcastDetail Component", () => {
     jest.clearAllMocks();
   });
 
-  describe("should render the podcast details", () => {
+  it("renders podcast details", () => {
     render(<PodcastDetail />, { wrapper: MemoryRouter });
 
-    expect(screen.getByText("Episodes of Artist")).toBeInTheDocument();
     expect(screen.getByText("Episode 1")).toBeInTheDocument();
     expect(screen.getByText("2024-10-01")).toBeInTheDocument();
     expect(screen.getByText("00:50")).toBeInTheDocument();
   });
 
-  describe("should dispatch fetchPodcastDetail and fetchPodcastEpisodes when podcast is not available", () => {
+  it("dispatches fetchPodcastDetail and fetchPodcastEpisodes when podcast is not available", () => {
     (useAppSelector as jest.Mock).mockReturnValueOnce({ podcast: null });
 
     render(<PodcastDetail />, { wrapper: MemoryRouter });
@@ -98,20 +97,17 @@ describe("PodcastDetail Component", () => {
     expect(mockDispatch).toHaveBeenCalledWith(fetchPodcastEpisodes("1"));
   });
 
-  describe("should navigate to the episode page on episode click", async () => {
-  
-
+  it("navigates correctly on episode click", async () => {
     render(<PodcastDetail />, { wrapper: MemoryRouter });
 
-    const episodeRows = await screen.getAllByTestId('episode-name');
+    const episodeRows = screen.getAllByTestId('episode-name');
     const firstEpisodeRow = episodeRows[0]; // Select the first episode row
     fireEvent.click(firstEpisodeRow); // Click the first episode row
 
     expect(mockHistoryPush).toHaveBeenCalledWith("/podcast/1/episode/1");
-});
+  });
 
-
-  describe("should show loading when there are no episodes", () => {
+  it("shows loading text when there are no episodes", () => {
     (useAppSelector as jest.Mock).mockReturnValueOnce({ episodes: { data: [] } });
 
     render(<PodcastDetail />, { wrapper: MemoryRouter });

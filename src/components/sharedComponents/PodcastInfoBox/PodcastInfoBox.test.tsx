@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { render, screen } from "@testing-library/react";
 import PodcastInfoBox from "./PodcastInfoBox";
 import { useAppSelector } from "@src/store/store";
@@ -34,6 +37,22 @@ describe("PodcastInfoBox component", () => {
       ],
     },
   };
+  const mockPodcastDataFalse = {
+    feed: {
+      podcasts: [
+        {
+          id: { attributes: { "im:id": "1" } },
+          podcastImage: [
+            { label: "small.jpg" },
+            { label: "medium.jpg" },
+            { label: "large.jpg" }
+          ],
+          podcastArtist: { label: "Artist Namee" },
+          summary: { label: "Podcast descriptionn" }
+        },
+      ],
+    },
+  };
 
   describe("should render the podcast details when a valid id is provided", () => {
     (useAppSelector as jest.Mock).mockReturnValue(mockPodcastData);
@@ -54,7 +73,7 @@ describe("PodcastInfoBox component", () => {
     (useAppSelector as jest.Mock).mockReturnValue(mockPodcastData);
 
     render(
-      <Provider store={mockStore({ podcastSlice: { podcasts: mockPodcastData } })}>
+      <Provider store={mockStore({ podcastSlice: { podcasts: mockPodcastDataFalse } })}>
         <PodcastInfoBox id="999" />
       </Provider>
     );
