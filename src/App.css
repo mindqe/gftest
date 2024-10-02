@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+.podcast-layout-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width:100%;
+    flex-direction: column;
+    margin-bottom: 40px;
+}

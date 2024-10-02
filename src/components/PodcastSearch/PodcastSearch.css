@@ -1,0 +1,28 @@
+.podcast-search-main{
+    display: flex;
+}
+
+.podcast-search-main input {
+    width: 120px;
+    outline: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+    border: 1.5px solid #cdc6c6;
+   
+}
+.podcast-search-badge{
+    width: 50px;
+    color: white;
+    font-size: 12px;
+    border-radius: 14px;
+    background-color: #2876BF;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+
+}

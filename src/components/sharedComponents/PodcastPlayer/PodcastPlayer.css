@@ -1,0 +1,45 @@
+/* Styles for the audio controls */
+.audio-player-container{
+background-color: rgb(0, 0, 0); /* Black background for the container */
+border-radius: 5px; /* Set border radius to 5px */
+overflow: hidden; /* Ensures the border radius is respected */
+width: 100%;
+
+}
+audio {
+ 
+    border-radius: 5px;
+   height: 40px;
+    width: 100%; /* Ensures the audio player takes the full width */
+}
+
+/* WebKit browsers (Chrome, Safari) */
+audio::-webkit-media-controls-panel {
+/* Black background */
+    border-radius: 5px;
+    height: 40px;
+    color: white;
+    background-color: black;
+}
+
+audio::-moz-media-controls {
+    background-color: rgb(0, 0, 0); 
+    color: white;/* Black background */
+}
+
+/* For Edge (using default styles) */
+audio::-ms-media-controls {
+    background-color: rgb(0, 0, 0); 
+    color: white;/* Black background */
+}
+
+/* Optional: Style the play button and other controls if needed */
+audio::-webkit-media-controls-play-button {
+    background-color: rgb(0, 0, 0);
+    color: white; /* Change color of the play button */
+}
+audio::-webkit-media-controls-mute-button {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+  }
