@@ -18,18 +18,11 @@ const PodcastDetail = (): React.ReactNode => {
   const podcast = useAppSelector((state) => state.podcastSlice.podcast);
   const podcasts = useAppSelector((state) => state.podcastSlice.podcasts);
   const episode = useAppSelector((state) => state.podcastSlice.episodes);
-  const fullObject = useAppSelector((state) => state.podcastSlice);
   const history = useHistory();
 
-  const parentPodcastEntry = podcasts?.feed.podcasts.find(
+  const parentPodcastEntry = podcasts?.feed?.podcasts.find(
     (entry) => entry.id.attributes["im:id"] === id
   );
-  // const podcastEpisodeTitle = episode?.data.map(element => element.attributes.itunesTitle)
-  // const podcastsCollection = podcast?.contents?.results.find(
-  //   (element) => String(element.artistId) === id
-  // );
-  console.log(parentPodcastEntry, "COLLECTION");
-  console.log("PodcastList: ", fullObject);
 
   const handleEpisodeClick = (id: string) => {
     history.push(`/podcast/${parentPodcastEntry?.id.attributes["im:id"]}/episode/${id}`);

@@ -14,7 +14,7 @@
     "dev:build:client": "webpack --config webpack.client.js --mode=development --node-env=development",
     "dev:build:server": "webpack --config webpack.server.js --mode=development --node-env=development",
     "tscheck": "tsc",
-    "coverage": "npm test --coverage --watchAll --collectCoverageFrom='src/components/**/*.{ts,tsx}'"
+    "coverage": "yarn jest --coverage --collectCoverageFrom='src/components/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",

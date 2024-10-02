@@ -33,4 +33,3 @@ export const usePathChange = <Params extends { [K in keyof Params]?: string }>(
   return matchResult;
 };
 
-// const match = usePathChange<{ id: string }>('/product/:id', { exact: true });

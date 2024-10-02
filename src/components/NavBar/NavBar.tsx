@@ -1,15 +1,15 @@
-import { useAppSelector } from '@src/store/store';
 import './NavBar.css';
+import { selectLoadingEpisodes } from '@src/store/reducers/podcastSlice/podcastSlice';
 
 const NavBar = () => {
-    const load = useAppSelector((state) => state.podcastSlice);
+    const load = selectLoadingEpisodes
     return (
         <div className='podcast-navbar-container'>
             <div className="podcast-navbar-title">
                 Podcaster
             </div>
             <div>
-            {load.loading && "loading" }
+            {!load ? "Loaded" : "Loadin..." }
             </div>
         </div>
       

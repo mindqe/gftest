@@ -1,6 +1,6 @@
 import { PodcastRepository } from "@domain/repositories/PodcastRepository";
 import { Http } from "../../domain/repositories/Http";
-import { ResponseFullDTO } from "../../infrastructure/http/dto/ResponseFullDTO";
+import { ResponseFullDTO } from "../http/dto/ResponseFullDTO";
 import { mapResponseToDTO } from "@src/mappers/helpers/mapResponseToDTO";
 import { PodcastDetailDTO } from "@infrastructure/http/dto/PodcastDetailDTO";
 export const podcastRepository = (client: Http): PodcastRepository => ({

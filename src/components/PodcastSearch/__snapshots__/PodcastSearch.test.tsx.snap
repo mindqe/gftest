@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PodcastSearch Component matches the snapshot 1`] = `
+<div>
+  <div
+    class="podcast-search-main"
+  >
+    <span
+      class="podcast-search-badge"
+    >
+      2
+    </span>
+    <input
+      placeholder="Search podcasts..."
+      type="text"
+      value="podcast"
+    />
+  </div>
+</div>
+`;
