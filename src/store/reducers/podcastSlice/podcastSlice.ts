@@ -113,13 +113,4 @@ const podcastSlice = createSlice({
   },
 });
 
-export const selectLoadingPodcast = (state: { podcast: PodcastState }) => state.podcast.loading;
-export const selectErrorPodcast = (state: { podcast: PodcastState }) => state.podcast.error;
-
-export const selectLoadingPodcasts = (state: { podcasts: PodcastState }) => state.podcasts.loading;
-export const selectErrorPodcasts = (state: { podcasts: PodcastState }) => state.podcasts.error;
-
-export const selectLoadingEpisodes = (state: { episodes: PodcastState }) => state.episodes.loading;
-export const selectErrorEpisodes = (state: { episodes: PodcastState }) => state.episodes.error;
-
 export default podcastSlice.reducer;

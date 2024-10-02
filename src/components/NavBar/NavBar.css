@@ -18,3 +18,38 @@
     color: #2876BF;
     cursor: pointer;
 }
+
+.dot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .dot {
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%; 
+    background-color: #2876BF; 
+    transition: opacity 3s ease; 
+    opacity: 0.5; 
+  }
+  
+  .dot.active {
+    opacity: 1; 
+    box-shadow: 0 0 20px #2876BF; 
+    animation: glow 6s infinite alternate; 
+  }
+  
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 10px #2876BF;
+    }
+    50% {
+        box-shadow: 0 0 25px #2876BF;
+        border:1px solid #144471;
+    }
+    100% {
+      box-shadow: 0 0 50px #2876BF;
+    }
+  }

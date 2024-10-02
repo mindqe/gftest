@@ -1,3 +1,5 @@
+import './PodcastSearch.css'
+
 const PodcastSearch = ({
   filteredPodcasts,
   searchTerm,
