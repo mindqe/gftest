@@ -68,9 +68,9 @@ async function handleRender(req, res, next) {
   }
 
   console.log('handleRender called.');
-  if (!compiler) {
-    return res.status(200).send('Loading...');
-  }
+  // if (!compiler) {
+  //   return res.status(200).send('Loading...');
+  // }
   try {
     let episodesList;
     const filename = path.resolve(__dirname, '..', 'dist', 'client.html');

@@ -43,12 +43,11 @@ export default (env, argv) => {
       filename: 'server.cjs',
       path: BUILD_PATH,
       publicPath: '/',
-      libraryTarget: 'commonjs2',
-      clean: true,
+      libraryTarget: 'commonjs2'
     },
     plugins: [
-      new webpack.EnvironmentPlugin({ NODE_ENV: 'development' }),
-      isDevelopment && new webpack.HotModuleReplacementPlugin(),
+      new webpack.EnvironmentPlugin({ NODE_ENV: 'production' }),
+      !isDevelopment && new webpack.HotModuleReplacementPlugin(),
     ].filter(Boolean),
     module: {
       rules: [
