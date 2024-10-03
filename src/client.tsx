@@ -1,19 +1,18 @@
-import { StrictMode } from "react";
-import {  hydrateRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import { HelmetProvider } from "react-helmet-async";
-import { loadableReady } from "@loadable/component";
+import { StrictMode } from 'react';
+import { hydrateRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import { loadableReady } from '@loadable/component';
 
-import App from "./App";
+import App from './App';
 
-import { initStore } from "./store/store";
-import { Provider } from "react-redux";
+import { initStore } from './store/store';
+import { Provider } from 'react-redux';
 
-import cache from "./cache";
-import { CacheProvider } from "@emotion/react";
+import cache from './cache';
+import { CacheProvider } from '@emotion/react';
 
 // import { USE_SERVICE_WORKER, localStorageAppKey } from "./constants/constants";
-
 
 // let window: any;
 // const serverPreloadedState =
@@ -37,15 +36,15 @@ import { CacheProvider } from "@emotion/react";
 // }
 
 const store = initStore((window as any).__PRELOADED_STATE__);
-delete (window as any).__PRELOADED_STATE__
+delete (window as any).__PRELOADED_STATE__;
 
 if (module.hot != null) {
-  module.hot.accept(["./store/store", "./store/reducers/rootReducer"], () => {
+  module.hot.accept(['./store/store', './store/reducers/rootReducer'], () => {
     (async () => {
-      const { mainReducer } = await import("./store/reducers/rootReducer");
+      const { mainReducer } = await import('./store/reducers/rootReducer');
       store.replaceReducer(mainReducer);
     })()
-      .then(() => { })
+      .then(() => {})
       .catch((er) => console.log(er));
   });
 }
@@ -78,11 +77,9 @@ const indexJSX = (
   </StrictMode>
 );
 
-const container = document.getElementById("root");
-if (container == null) throw new Error("Failed to find the root element");
+const container = document.getElementById('root');
+if (container == null) throw new Error('Failed to find the root element');
 
-
-  loadableReady(() => {
-    hydrateRoot(container, indexJSX);
-  });
-
+loadableReady(() => {
+  hydrateRoot(container, indexJSX);
+});

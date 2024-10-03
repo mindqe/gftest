@@ -1,7 +1,7 @@
-import DefaultLayout from "./layouts/DefaultLayout";
-import './App.css'
-import { Route, Switch } from "react-router-dom";
-import routes from "./routes";
+import DefaultLayout from './layouts/DefaultLayout';
+import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import routes from './routes';
 
 // import { useAppSelector, useAppDispatch, RootState } from './store/store';
 // import { localStorageAppKey, reduxHydrationAction } from "./constants/constants";
@@ -39,18 +39,18 @@ export default function App() {
 
   return (
     <div className="podcast-layout-container">
-    <DefaultLayout>
-      <Switch>
-        {routes.map(({ path, component, ...route }) => (
-          <Route
-            key={path}
-            path={path}
-            component={component}
-            {...route}
-          ></Route>
-        ))}
-      </Switch>
-    </DefaultLayout>
+      <DefaultLayout>
+        <Switch>
+          {routes.map(({ path, component, ...route }) => (
+            <Route
+              key={path}
+              path={path}
+              component={component}
+              {...route}
+            ></Route>
+          ))}
+        </Switch>
+      </DefaultLayout>
     </div>
   );
 }

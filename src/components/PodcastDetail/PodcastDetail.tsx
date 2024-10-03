@@ -1,14 +1,14 @@
-import { useParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "@src/store/store";
-import { useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '@src/store/store';
+import { useEffect } from 'react';
 import {
   fetchPodcastDetail,
   fetchPodcastEpisodes,
-} from "@src/store/reducers/podcastSlice/podcastSlice";
-import { useHistory } from "react-router-dom";
-import { useConvertTime, useDateFormat } from "@src/hooks/useUtils";
-import "./PodcastDetail.css";
-import PodcastInfoBox from "../sharedComponents/PodcastInfoBox/PodcastInfoBox";
+} from '@src/store/reducers/podcastSlice/podcastSlice';
+import { useHistory } from 'react-router-dom';
+import { useConvertTime, useDateFormat } from '@src/hooks/useUtils';
+import './PodcastDetail.css';
+import PodcastInfoBox from '../sharedComponents/PodcastInfoBox/PodcastInfoBox';
 
 type QueryParams = { id: string };
 
@@ -21,12 +21,12 @@ const PodcastDetail = (): React.ReactNode => {
   const history = useHistory();
 
   const parentPodcastEntry = podcasts?.feed?.podcasts.find(
-    (entry) => entry.id.attributes["im:id"] === params?.id
+    (entry) => entry.id.attributes['im:id'] === params?.id
   );
 
   const handleEpisodeClick = (id: string) => {
     history.push(
-      `/podcast/${parentPodcastEntry?.id.attributes["im:id"]}/episode/${id}`
+      `/podcast/${parentPodcastEntry?.id.attributes['im:id']}/episode/${id}`
     );
   };
 

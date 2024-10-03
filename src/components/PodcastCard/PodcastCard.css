@@ -1,96 +1,92 @@
 .single-card-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 14px;
 
-    position: relative;
-    padding-bottom: 0px; 
-    -webkit-box-shadow: 0px 3px 12px -3px #cdc6c6;
-    -moz-box-shadow: 0px 3px 12px -3px #cdc6c6;
-    box-shadow: 0px 3px 12px -3px #cdc6c6;
-    cursor: pointer;
-
-    
+  position: relative;
+  padding-bottom: 0px;
+  -webkit-box-shadow: 0px 3px 12px -3px #cdc6c6;
+  -moz-box-shadow: 0px 3px 12px -3px #cdc6c6;
+  box-shadow: 0px 3px 12px -3px #cdc6c6;
+  cursor: pointer;
 }
 
 .single-card-image {
-    width: 128px;
-    height: 128px;
-    border-radius: 50%;
-    position: absolute;
-    top: -38px; 
-    overflow: hidden;
-    border: 4px solid white;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  position: absolute;
+  top: -38px;
+  overflow: hidden;
+  border: 4px solid white;
 }
 
 .single-card-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.single-card-name{
-    text-align: center;
-    margin: 0;
-    padding: 8px 12px 0 12px;
-    line-height: 1.2em; 
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 800;
-} 
+.single-card-name {
+  text-align: center;
+  margin: 0;
+  padding: 8px 12px 0 12px;
+  line-height: 1.2em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 800;
+}
 
 .single-card-author {
-    text-align: center;
-    margin: 0;
-    padding: 8px 12px 8px 12px;
-    line-height: 1.2em; 
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: rgb(137, 137, 137);
-    font-size: small;
-
+  text-align: center;
+  margin: 0;
+  padding: 8px 12px 8px 12px;
+  line-height: 1.2em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(137, 137, 137);
+  font-size: small;
 }
 
-.single-card-name p, 
+.single-card-name p,
 .single-card-author p {
-    margin: 0;
-    font-size: 14px;
-    color: #333;
+  margin: 0;
+  font-size: 14px;
+  color: #333;
 }
-
 
 .single-card-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 100px; 
-    padding-bottom: 10px; 
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 10px;
+  width: 100%;
 }
 
 /* 1 card per row on small screens */
 @media only screen and (min-width: 0px) and (max-width: 700px) {
-    .single-card-container {
-        flex: 1 1 800%; /* 100% width for 1 card per row */
-    }
+  .single-card-container {
+    flex: 1 1 800%; /* 100% width for 1 card per row */
+  }
 }
 
 /* 2 cards per row on medium screens */
 @media only screen and (min-width: 700px) {
-    .single-card-container {
-        flex: 1 1 43%; /* 50% width for 2 cards per row */
-    }
+  .single-card-container {
+    flex: 1 1 43%; /* 50% width for 2 cards per row */
+  }
 }
 
 /* 3 cards per row on larger screens */
 @media only screen and (min-width: 900px) {
-    .single-card-container {
-        flex: 1 1 30%; /* 33.33% width for 3 cards per row */
-    }
+  .single-card-container {
+    flex: 1 1 30%; /* 33.33% width for 3 cards per row */
+  }
 }
 
 /* 4 cards per row on extra large screens */
 @media only screen and (min-width: 1200px) {
-    .single-card-container {
-        flex: 1 1 20%; /* 25% width for 4 cards per row */
-    }
+  .single-card-container {
+    flex: 1 1 20%; /* 25% width for 4 cards per row */
+  }
 }

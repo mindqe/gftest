@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useLocation, matchPath, match } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useLocation, matchPath, match } from 'react-router-dom';
 
 interface UsePathChangeOptions {
   exact?: boolean;
@@ -32,4 +32,3 @@ export const usePathChange = <Params extends { [K in keyof Params]?: string }>(
 
   return matchResult;
 };
-

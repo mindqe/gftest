@@ -1,17 +1,17 @@
-import './PodcastSearch.css'
+import './PodcastSearch.css';
 
 const PodcastSearch = ({
   filteredPodcasts,
   searchTerm,
-  setSearchTerm
-}: { 
-  filteredPodcasts: { id: number; title: string }[]; 
-  searchTerm: string; 
-  setSearchTerm: (term: string) => void 
+  setSearchTerm,
+}: {
+  filteredPodcasts: { id: number; title: string }[];
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
 }) => {
   return (
-    <div className="podcast-search-main">        
-      <span data-testid='podcast-badge' className="podcast-search-badge">
+    <div className="podcast-search-main">
+      <span data-testid="podcast-badge" className="podcast-search-badge">
         {filteredPodcasts?.length}
       </span>
       <input

@@ -5,12 +5,13 @@ import { ResponseMappedModel } from '@src/mappers/models/ResponseMappedModel';
 import { PodcastDetailModel } from '@domain/models/PodcastDetailModel';
 import { PodcastEpisodeModel } from '@domain/models/PodcastEpisodeModel';
 
-
 export const fetchPodcastList = createAsyncThunk(
   'podcast/fetchPodcastList',
   async (_, { rejectWithValue }) => {
     try {
-      const responsePodcasts = await podcastService(podcastRepositoryInstance).getPodcasts();
+      const responsePodcasts = await podcastService(
+        podcastRepositoryInstance
+      ).getPodcasts();
       return responsePodcasts;
     } catch (error) {
       return rejectWithValue('Failed to fetch podcasts');
@@ -22,10 +23,12 @@ export const fetchPodcastDetail = createAsyncThunk(
   'podcast/fetchPodcastDetail',
   async (id: string) => {
     try {
-      const detail = await podcastService(podcastRepositoryInstance).getPodcastDetail(id);
+      const detail = await podcastService(
+        podcastRepositoryInstance
+      ).getPodcastDetail(id);
       return detail;
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 );
@@ -34,10 +37,12 @@ export const fetchPodcastEpisodes = createAsyncThunk(
   'episodes/fetchAllEpisodes',
   async (id: string) => {
     try {
-      const episodes = await podcastService(podcastRepositoryInstance).getPodcastEpisodes(id);
-      return episodes; 
+      const episodes = await podcastService(
+        podcastRepositoryInstance
+      ).getPodcastEpisodes(id);
+      return episodes;
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 );
@@ -45,7 +50,7 @@ export const fetchPodcastEpisodes = createAsyncThunk(
 interface PodcastState {
   podcasts: ResponseMappedModel | null;
   podcast: PodcastDetailModel | null;
-  episodes: PodcastEpisodeModel | null,
+  episodes: PodcastEpisodeModel | null;
   loadingPodcasts: boolean;
   loadingPodcast: boolean;
   loadingEpisodes: boolean;
@@ -59,27 +64,28 @@ const initialState: PodcastState = {
   loadingPodcasts: false,
   loadingPodcast: false,
   loadingEpisodes: false,
-  error: null
+  error: null,
 };
 
 const podcastSlice = createSlice({
   name: 'podcast',
   initialState,
-  reducers: {
-
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchPodcastList.pending, (state) => {
       state.loadingPodcasts = true;
       state.error = null;
     });
-    builder.addCase(fetchPodcastList.fulfilled, (state, action: PayloadAction<ResponseMappedModel>) => {
-      return {
-        ...state, // Persist the previous global state
-        podcasts: { ...(state.podcasts || {}), ...action.payload }, // Update episodes with previous and new data
-        loadingPodcasts: false, // Set loading to false
-      };
-    });
+    builder.addCase(
+      fetchPodcastList.fulfilled,
+      (state, action: PayloadAction<ResponseMappedModel>) => {
+        return {
+          ...state, // Persist the previous global state
+          podcasts: { ...(state.podcasts || {}), ...action.payload }, // Update episodes with previous and new data
+          loadingPodcasts: false, // Set loading to false
+        };
+      }
+    );
     builder.addCase(fetchPodcastList.rejected, (state, action) => {
       state.loadingPodcasts = false;
       state.error = action.payload as string;
@@ -88,13 +94,16 @@ const podcastSlice = createSlice({
       state.loadingPodcast = true;
       state.error = null;
     });
-    builder.addCase(fetchPodcastDetail.fulfilled, (state, action: PayloadAction<PodcastDetailModel>) => {
-      return {
-        ...state, // Persist the previous global state
-        podcast: { ...(state.podcast || {}), ...action.payload }, // Update podcast with previous and new data
-        loadingPodcast: false, // Set loading to false
-      };
-    });
+    builder.addCase(
+      fetchPodcastDetail.fulfilled,
+      (state, action: PayloadAction<PodcastDetailModel>) => {
+        return {
+          ...state, // Persist the previous global state
+          podcast: { ...(state.podcast || {}), ...action.payload }, // Update podcast with previous and new data
+          loadingPodcast: false, // Set loading to false
+        };
+      }
+    );
     builder.addCase(fetchPodcastDetail.rejected, (state, action) => {
       state.loadingPodcast = false;
       state.error = action.payload as string;
@@ -103,13 +112,16 @@ const podcastSlice = createSlice({
       state.loadingEpisodes = true;
       state.error = null;
     });
-    builder.addCase(fetchPodcastEpisodes.fulfilled, (state, action: PayloadAction<PodcastEpisodeModel>) => {
-      return {
-        ...state, // Persist the previous global state
-        episodes: { ...(state.episodes || {}), ...action.payload }, // Update episodes with previous and new data
-        loadingEpisodes: false, // Set loading to false
-      };
-    });
+    builder.addCase(
+      fetchPodcastEpisodes.fulfilled,
+      (state, action: PayloadAction<PodcastEpisodeModel>) => {
+        return {
+          ...state, // Persist the previous global state
+          episodes: { ...(state.episodes || {}), ...action.payload }, // Update episodes with previous and new data
+          loadingEpisodes: false, // Set loading to false
+        };
+      }
+    );
     builder.addCase(fetchPodcastEpisodes.rejected, (state, action) => {
       state.loadingEpisodes = false;
       state.error = action.payload as string;

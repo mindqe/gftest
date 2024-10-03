@@ -1,2 +1,2 @@
-export { persistStateToLocalStorage } from './persistOnLocalStorage'
-export { startAppListening, listenerMiddleware } from './listeners'
+export { persistStateToLocalStorage } from './persistOnLocalStorage';
+export { startAppListening, listenerMiddleware } from './listeners';

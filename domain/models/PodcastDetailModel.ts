@@ -1,9 +1,9 @@
 export interface PodcastDetailModel {
   id: {
     attributes: {
-      "im:id": string;
-    }
-  }
+      'im:id': string;
+    };
+  };
   contents: {
     resultCount: number;
     results: {
@@ -42,4 +42,4 @@ export interface PodcastDetailModel {
       genres: [string, string];
     }[];
   };
-};
+}

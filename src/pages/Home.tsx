@@ -1,7 +1,4 @@
-
-import  PodcastList from "../components/PodcastList/PodcastList"
+import PodcastList from '../components/PodcastList/PodcastList';
 export default function Home() {
-  return (
-    <PodcastList />
-  );
+  return <PodcastList />;
 }

@@ -6,8 +6,8 @@ interface PodcastEpisodesDTO {
     href: string;
     attributes: {
       offers: {
-        kind: "get";
-        type: "STDQ";
+        kind: 'get';
+        type: 'STDQ';
       }[];
       contentAdvisory: string;
       copyright: string;
@@ -65,7 +65,7 @@ interface PodcastEpisodesDTO {
                 joinText: string;
                 benefitsText: string;
                 kind: string;
-              }
+              },
             ];
             subscriptionArtwork: {
               width: number;

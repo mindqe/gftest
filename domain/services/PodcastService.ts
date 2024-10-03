@@ -1,4 +1,4 @@
-import { PodcastRepository } from "../repositories/PodcastRepository";
+import { PodcastRepository } from '../repositories/PodcastRepository';
 export const podcastService = (
   repository: PodcastRepository
 ): PodcastRepository => ({

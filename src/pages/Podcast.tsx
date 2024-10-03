@@ -1,7 +1,4 @@
-
-import PodcastDetail from "@src/components/PodcastDetail/PodcastDetail";
+import PodcastDetail from '@src/components/PodcastDetail/PodcastDetail';
 export default function Podcast() {
-  return (
-    <PodcastDetail />
-  );
+  return <PodcastDetail />;
 }

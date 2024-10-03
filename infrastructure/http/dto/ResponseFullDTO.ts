@@ -7,10 +7,10 @@ export interface ResponseFullDTO {
       };
     };
     entry: {
-      "im:name": {
+      'im:name': {
         label: string;
       };
-      "im:image": [
+      'im:image': [
         {
           label: string;
           attributes: {
@@ -28,19 +28,19 @@ export interface ResponseFullDTO {
           attributes: {
             height: string;
           };
-        }
+        },
       ];
       summary: {
         label: string;
       };
-      "im:price": {
+      'im:price': {
         label: string;
         attributes: {
           amount: string;
           currency: string;
         };
       };
-      "im:contentType": {
+      'im:contentType': {
         attributes: {
           term: string;
           label: string;
@@ -62,10 +62,10 @@ export interface ResponseFullDTO {
       id: {
         label: string;
         attributes: {
-          "im:id": string;
+          'im:id': string;
         };
       };
-      "im:artist": {
+      'im:artist': {
         label: string;
         attributes: {
           href: string;
@@ -73,13 +73,13 @@ export interface ResponseFullDTO {
       };
       category: {
         attributes: {
-          "im:id": string;
+          'im:id': string;
           term: string;
           scheme: string;
           label: string;
         };
       };
-      "im:releaseDate": {
+      'im:releaseDate': {
         label: Date;
         attributes: {
           label: string;
@@ -111,7 +111,7 @@ export interface ResponseFullDTO {
           rel: string;
           href: string;
         };
-      }
+      },
     ];
     id: {
       label: string;

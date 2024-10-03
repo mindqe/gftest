@@ -1,73 +1,73 @@
 .audio-player-container {
-    height: 40px; 
-    background-color: black; 
-    display: flex; 
-    align-items: center; 
-    padding: 0 10px; 
-    position: relative; 
-    border-radius: 8px;
+  height: 40px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  position: relative;
+  border-radius: 8px;
 }
 
 .audio-player {
-    width: 100%; 
-    outline: none; 
-    display: none; 
+  width: 100%;
+  outline: none;
+  display: none;
 }
 
 .audio-controls {
-    display: flex; 
-    align-items: center; 
-    flex-grow: 1; 
-    margin-right: 10px; 
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin-right: 10px;
 }
 
 .audio-button {
-    background: none; 
-    border: none; 
-    color: white; 
-    cursor: pointer; 
-    margin: 0 5px; 
-    font-size: 16px; 
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin: 0 5px;
+  font-size: 16px;
 }
 
 .audio-time {
-    color: white; 
-    margin: 0 5px; 
+  color: white;
+  margin: 0 5px;
 }
 
 .mute-button {
-    margin-left: auto; 
-    background: none; 
-    border: none; 
-    color: white; 
-    cursor: pointer; 
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
 .audio-progress {
-    -webkit-appearance: none; 
-    appearance: none; 
-    width: 100%; 
-    height: 4px; 
-    background: grey; 
-    border-radius: 5px; 
-    outline: none; 
-    margin: 0 10px; 
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: grey;
+  border-radius: 5px;
+  outline: none;
+  margin: 0 10px;
 }
 
 .audio-progress::-webkit-slider-thumb {
-    -webkit-appearance: none; 
-    appearance: none; 
-    width: 12px; 
-    height: 12px; 
-    background: white; 
-    border-radius: 50%; 
-    cursor: pointer; 
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .audio-progress::-moz-range-thumb {
-    width: 12px; 
-    height: 12px; 
-    background: white; 
-    border-radius: 50%; 
-    cursor: pointer; 
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
 }

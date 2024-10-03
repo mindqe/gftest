@@ -28,7 +28,7 @@ export interface ResponseMappedModel {
           attributes: {
             height: string;
           };
-        }
+        },
       ];
       summary: {
         label: string;
@@ -62,7 +62,7 @@ export interface ResponseMappedModel {
       id: {
         label: string;
         attributes: {
-          "im:id": string;
+          'im:id': string;
         };
       };
       podcastArtist: {
@@ -73,13 +73,13 @@ export interface ResponseMappedModel {
       };
       category: {
         attributes: {
-          "im:id": string;
+          'im:id': string;
           term: string;
           scheme: string;
           label: string;
         };
       };
-      "im:releaseDate": {
+      'im:releaseDate': {
         label: Date;
         attributes: {
           label: string;
@@ -111,7 +111,7 @@ export interface ResponseMappedModel {
           rel: string;
           href: string;
         };
-      }
+      },
     ];
     id: {
       label: string;

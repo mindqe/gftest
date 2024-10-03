@@ -1,6 +1,6 @@
 /**
  * @jest-environment jsdom
-*/
+ */
 import { render, screen, fireEvent } from '@testing-library/react';
 import PodcastSearch from './PodcastSearch';
 
@@ -56,9 +56,9 @@ describe('PodcastSearch Component', () => {
     );
 
     const inputElement = screen.getByPlaceholderText('Search podcasts...');
-    
+
     fireEvent.change(inputElement, { target: { value: 'new search' } });
-    
+
     expect(mockSetSearchTerm).toHaveBeenCalledWith('new search');
   });
 

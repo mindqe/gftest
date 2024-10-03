@@ -1,13 +1,13 @@
-import { useAppSelector } from "@src/store/store";
-import PodcastInfoBox from "../sharedComponents/PodcastInfoBox/PodcastInfoBox";
-import { useRouteMatch } from "react-router-dom";
-import PodcastPlayer from "../sharedComponents/PodcastPlayer/PodcastPlayer";
-import { PodcastEpisodeModel } from "@domain/models/PodcastEpisodeModel";
-import "./PodcastEpisode.css";
-import { useState, useEffect } from "react";
+import { useAppSelector } from '@src/store/store';
+import PodcastInfoBox from '../sharedComponents/PodcastInfoBox/PodcastInfoBox';
+import { useRouteMatch } from 'react-router-dom';
+import PodcastPlayer from '../sharedComponents/PodcastPlayer/PodcastPlayer';
+import { PodcastEpisodeModel } from '@domain/models/PodcastEpisodeModel';
+import './PodcastEpisode.css';
+import { useState, useEffect } from 'react';
 const PodcastEpisode = () => {
   const [foundEpisode, setFoundEpisode] = useState<
-    PodcastEpisodeModel["data"][number] | undefined
+    PodcastEpisodeModel['data'][number] | undefined
   >();
 
   const params = useRouteMatch();
@@ -32,7 +32,7 @@ const PodcastEpisode = () => {
       <div className="podcast-episode-main-player">
         <PodcastInfoBox id={artistId} />
         <div className="podcast-episode-inner-player">
-          <div data-testid='episode-name' className="podcast-episode-name">
+          <div data-testid="episode-name" className="podcast-episode-name">
             {foundEpisode?.attributes.name}
           </div>
           <div className="podcast-episode-description">

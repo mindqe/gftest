@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
 
 jobs:
   build:
@@ -12,24 +12,24 @@ jobs:
         node-version: [22.x]
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Install Dependencies
-      run: yarn install
+      - name: Install Dependencies
+        run: yarn install
 
-    - name: Build Project
-      run: yarn build
+      - name: Build Project
+        run: yarn build
 
-    - name: Upload Pages Artifact
-      uses: actions/upload-pages-artifact@v1
-      with:
-        path: ./dist
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./dist
 
   deploy:
     needs: build
@@ -38,5 +38,5 @@ jobs:
       pages: write
       id-token: write
     steps:
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v1
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
