@@ -21,11 +21,6 @@ export const podcastRepository = (client: Http): PodcastRepository => ({
     return mappedResponse;
   },
   getPodcastDetail: async (id: string | null) => {
-    if (typeof window !== 'undefined') {
-      console.log('[HYDATE.pending]: getPodcastDetail/%s', id);
-    } else {
-      console.log('[Server.pending]: getPodcastDetail/%s', id);
-    }
 
     const baseURL = encodeURIComponent(
       `https://itunes.apple.com/lookup?id=${id}`
@@ -39,15 +34,6 @@ export const podcastRepository = (client: Http): PodcastRepository => ({
       .replaceAll(/\\"/g, '"');
 
     const parsedPodcastDetail = JSON.parse(replacedPodcastDetail);
-
-    if (typeof window !== 'undefined') {
-      console.log('[HYDATE.fullfilled]: getPodcastDetail/%s', response);
-    } else {
-      console.log(
-        '[Server.fullfilled]: getPodcastDetail/%s',
-        replacedPodcastDetail
-      );
-    }
 
     return parsedPodcastDetail;
   },

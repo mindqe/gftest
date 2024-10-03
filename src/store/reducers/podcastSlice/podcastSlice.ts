@@ -80,9 +80,9 @@ const podcastSlice = createSlice({
       fetchPodcastList.fulfilled,
       (state, action: PayloadAction<ResponseMappedModel>) => {
         return {
-          ...state, // Persist the previous global state
-          podcasts: { ...(state.podcasts || {}), ...action.payload }, // Update episodes with previous and new data
-          loadingPodcasts: false, // Set loading to false
+          ...state,
+          podcasts: { ...(state.podcasts || {}), ...action.payload },
+          loadingPodcasts: false,
         };
       }
     );
@@ -98,9 +98,9 @@ const podcastSlice = createSlice({
       fetchPodcastDetail.fulfilled,
       (state, action: PayloadAction<PodcastDetailModel>) => {
         return {
-          ...state, // Persist the previous global state
-          podcast: { ...(state.podcast || {}), ...action.payload }, // Update podcast with previous and new data
-          loadingPodcast: false, // Set loading to false
+          ...state,
+          podcast: { ...(state.podcast || {}), ...action.payload },
+          loadingPodcast: false,
         };
       }
     );
@@ -116,9 +116,9 @@ const podcastSlice = createSlice({
       fetchPodcastEpisodes.fulfilled,
       (state, action: PayloadAction<PodcastEpisodeModel>) => {
         return {
-          ...state, // Persist the previous global state
-          episodes: { ...(state.episodes || {}), ...action.payload }, // Update episodes with previous and new data
-          loadingEpisodes: false, // Set loading to false
+          ...state,
+          episodes: { ...(state.episodes || {}), ...action.payload },
+          loadingEpisodes: false,
         };
       }
     );
