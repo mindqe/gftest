@@ -1,4 +1,5 @@
 <h1>Custom React.js, SSR with Express.js, Webpack, Typesctipt and Domain Driven Design</h1>
+<h2>Live URL: <a href="https://gftest-t2q4.onrender.com/">https://gftest-t2q4.onrender.com/</a> - should work.
 <h2>Build and tested on Node v22.*</h2>
 <h3>1 run:</h3> <code>yarn</code> to install dependencies
 <h3>2 run:</h3> <code>yarn build</code> to build production bundle
