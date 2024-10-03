@@ -8,7 +8,7 @@
   "homepage": "https://mindqe.github.io/gftest",
   "scripts": {
     "start": "node dist/server.cjs",
-    "build": "yarn build:client && yarn build:server",
+    "build": "yarn build:server && yarn build:client",
     "build:client": "webpack --config webpack.client.js --mode=production --node-env=production",
     "build:server": "webpack --config webpack.server.js --mode=production --node-env=production",
     "dev": "yarn dev:build:server && yarn start",
@@ -64,6 +64,7 @@
     "babel-plugin-css-modules-transform": "^1.6.2",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^6.8.1",
     "cssnano": "^7.0.6",
     "eslint-config-prettier": "^9.1.0",
