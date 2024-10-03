@@ -46,8 +46,8 @@ export default (env, argv) => {
       libraryTarget: 'commonjs2'
     },
     plugins: [
-      new webpack.EnvironmentPlugin({ NODE_ENV: 'production' }),
-      !isDevelopment && new webpack.HotModuleReplacementPlugin(),
+      new webpack.EnvironmentPlugin({ NODE_ENV: 'development' }),
+      isDevelopment && new webpack.HotModuleReplacementPlugin(),
     ].filter(Boolean),
     module: {
       rules: [

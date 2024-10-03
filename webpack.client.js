@@ -69,9 +69,9 @@ export default (env, argv) => {
       ],
     },
     plugins: [
-      new webpack.EnvironmentPlugin({ NODE_ENV: 'production' }),
-      !isDevelopment && new webpack.HotModuleReplacementPlugin(),
-      !isDevelopment && new ReactRefreshWebpackPlugin(),
+      new webpack.EnvironmentPlugin({ NODE_ENV: 'development' }),
+      isDevelopment && new webpack.HotModuleReplacementPlugin(),
+      isDevelopment && new ReactRefreshWebpackPlugin(),
       new HtmlWebpackPlugin({
         title: 'GFTest - Mindaugas Daugenas',
         template: 'public/index.html',
