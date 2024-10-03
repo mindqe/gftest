@@ -73,7 +73,7 @@ export default (env, argv) => {
             new HtmlWebpackPlugin({
                 title: "GFTest - Mindaugas Daugenas",
                 template: "public/index.html",
-                filename: "index.html",
+                filename: "client.html",
                 minify: {
                     removeComments: true,
                     collapseWhitespace: true,

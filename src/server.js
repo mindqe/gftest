@@ -76,7 +76,7 @@ async function handleRender(req, res, next) {
   }
   try {
     let episodesList;
-    const filename = path.resolve(__dirname, "..", "dist", "index.html");
+    const filename = path.resolve(__dirname, "..", "dist", "client.html");
     console.log(`Reading HTML from ${filename}...`);
     const html = await fs.readFile(filename, "utf8");
 

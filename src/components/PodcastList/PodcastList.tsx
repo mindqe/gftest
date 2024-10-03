@@ -22,7 +22,7 @@ type PodcastMapTypes = { podcastImage:
 
 const PodcastList = () => {
   const podcastsResponseView = useAppSelector((state) => state.podcastSlice);
-  const { filteredPodcasts, searchTerm, setSearchTerm } = useSearchPodcast(podcastsResponseView.podcasts?.feed.podcasts);
+  const { filteredPodcasts, searchTerm, setSearchTerm } = useSearchPodcast(podcastsResponseView.podcasts?.feed?.podcasts);
 
   const history = useHistory();
 
