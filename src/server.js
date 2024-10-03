@@ -87,18 +87,6 @@ async function handleRender(req, res, next) {
     await (activeRoute.getInitialData
       ? activeRoute.getInitialData(store, matchRoute.params)
       : Promise.resolve());
-    // if (req.url.includes("/podcast/")) {
-    //   await (activeRoute.getInitialData
-    //     ? activeRoute.getInialData(store, matchRoute.params)
-    //     : Promise.resolve());
-    //   const episodesList = await handleGetPodcastEpisodes(matchRoute.params.id); // Call the server-side function
-    //   await (activeRoute.getInitialData
-    //     ? activeRoute.getEpisodesData(store, episodesList)
-    //     : Promise.resolve());// Pass episodesList to getInitialData
-    // }
-
-
-
 
     const finalState = store.getState();
 
@@ -122,20 +110,6 @@ async function handleRender(req, res, next) {
 
     const plainStyles = await loadStyles();
     const styleTags = createStyleTags(plainStyles);
-
-    //   const ssrHTML = html
-    // .replace(/<div id="root">\s*<\/div>/, `<div id="root">${app}</div>`)
-    // .replace(
-    //   "{}",
-    //   // Replace with JSON.stringify(finalState), ensuring no circular refs
-    //   JSON.stringify(finalState, (key, value) => {
-    //     if (key === "req" || key === "res") {
-    //       return undefined; // Remove circular refs from serialization
-    //     }
-    //     return value;
-    //   }).replace(/</g, "\\u003c")
-    // )
-    // .replace("<style></style>", styleTags);
 
     const ssrHTML = html
       .replace(/<div id="root">\s*<\/div>/, `<div id="root">${app}</div>`)
