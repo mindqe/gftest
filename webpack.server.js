@@ -40,7 +40,7 @@ export default (env, argv) => {
     output: {
       filename: "server.cjs",
       path: BUILD_PATH,
-      publicPath: "/public",
+      publicPath: "/",
       libraryTarget: "commonjs2",
       clean: true
     },
