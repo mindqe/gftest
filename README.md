@@ -5,6 +5,4 @@
 <h3>3 run:</h3> <code>yarn dev</code> to tobuild development bundle and serve on development server localhost:3005
 <h3>4 run:</h3> <code>yarn coverage</code> to run Jest tests and check coverage of each component
 <h3>5 run:</h3> <code>yarn tsCheck</code> to run tsc and check typescript errors
-
-<h3>For CSS there is implemented Emotion library to use CSS as styledComponents</h3>
-<h3>But basically i used plain CSS</h3>
+<h3>6 run:</h3> <code>yarn format</code> to format and prittyfy file structure

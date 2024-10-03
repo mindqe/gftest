@@ -22,6 +22,7 @@ import axios from 'axios';
 import { fetchPodcastList } from './store/reducers/podcastSlice/podcastSlice.js';
 import { match } from 'assert';
 import api from './api/index.js';
+import cors from 'cors';
 
 const isProduction = process.env.NODE_ENV === 'production';
 console.log('Dirname: ', __dirname);
@@ -33,7 +34,16 @@ const port = 3005;
 
 let compiler;
 
-app.use('/api', api);
+app.use(
+  '/api',
+  cors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  }),
+  api
+);
 
 async function loadStyles() {
   try {

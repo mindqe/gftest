@@ -21,7 +21,6 @@ export const podcastRepository = (client: Http): PodcastRepository => ({
     return mappedResponse;
   },
   getPodcastDetail: async (id: string | null) => {
-
     const baseURL = encodeURIComponent(
       `https://itunes.apple.com/lookup?id=${id}`
     );
