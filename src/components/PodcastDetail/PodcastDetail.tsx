@@ -14,6 +14,7 @@ type QueryParams = { id: string };
 
 const PodcastDetail = (): React.ReactNode => {
   const params = useParams<QueryParams>();
+  const domain = window.location.origin;
   const dispatch = useAppDispatch();
   const podcast = useAppSelector((state) => state.podcastSlice.podcast);
   const podcasts = useAppSelector((state) => state.podcastSlice.podcasts);
@@ -33,7 +34,7 @@ const PodcastDetail = (): React.ReactNode => {
   useEffect(() => {
     if (!podcast) {
       dispatch(fetchPodcastDetail(params?.id));
-      dispatch(fetchPodcastEpisodes(params?.id));
+      dispatch(fetchPodcastEpisodes({ id: params?.id, domain: domain }));
     }
   }, [dispatch, podcast]);
 

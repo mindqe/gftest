@@ -11,7 +11,11 @@ interface Routes {
   path: string;
   exact?: boolean;
   component: () => React.ReactNode;
-  getInitialData: (store: any, params: Record<string, any>) => Promise<void>;
+  getInitialData: (
+    store: any,
+    params: Record<string, any>,
+    domain: any
+  ) => Promise<void>;
 }
 
 const routes: Routes[] = [
@@ -27,19 +31,19 @@ const routes: Routes[] = [
     path: '/podcast/:id',
     exact: true,
     component: PodcastDetail,
-    getInitialData: async (store, params) => {
+    getInitialData: async (store, params, domain) => {
       const { id } = params;
       await store.dispatch(fetchPodcastList());
       await store.dispatch(fetchPodcastDetail(id));
-      await store.dispatch(fetchPodcastEpisodes(id));
+      await store.dispatch(fetchPodcastEpisodes({ id: params['id'], domain }));
     },
   },
   {
     path: '/podcast/:id/episode/:id',
     exact: true,
     component: PodcastEpisode,
-    getInitialData: async (store, params) => {
-      await store.dispatch(fetchPodcastEpisodes(params['id']));
+    getInitialData: async (store, params, domain) => {
+      await store.dispatch(fetchPodcastEpisodes({ id: params['id'], domain }));
     },
   },
 ];

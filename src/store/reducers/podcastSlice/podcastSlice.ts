@@ -35,11 +35,11 @@ export const fetchPodcastDetail = createAsyncThunk(
 
 export const fetchPodcastEpisodes = createAsyncThunk(
   'episodes/fetchAllEpisodes',
-  async (id: string) => {
+  async ({ id, domain }: { id: string; domain: string }) => {
     try {
       const episodes = await podcastService(
         podcastRepositoryInstance
-      ).getPodcastEpisodes(id);
+      ).getPodcastEpisodes(id, domain);
       return episodes;
     } catch (error) {
       console.log(error);

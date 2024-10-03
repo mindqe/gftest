@@ -8,7 +8,7 @@ export const podcastService = (
   getPodcastDetail: async (id: string) => {
     return repository.getPodcastDetail(id);
   },
-  getPodcastEpisodes: async (id: string) => {
-    return repository.getPodcastEpisodes(id);
+  getPodcastEpisodes: async (id: string, domain: string) => {
+    return repository.getPodcastEpisodes(id, domain);
   },
 });

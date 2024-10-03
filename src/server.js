@@ -68,6 +68,7 @@ function createStyleTags(styles) {
 }
 
 async function handleRender(req, res, next) {
+  const domain = req.protocol + '://' + req.get('host');
   if (/\.(js|css|json|png|jpg|jpeg)$/.test(req.url)) {
     return next();
   }

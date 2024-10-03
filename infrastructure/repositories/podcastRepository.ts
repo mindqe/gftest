@@ -36,10 +36,8 @@ export const podcastRepository = (client: Http): PodcastRepository => ({
 
     return parsedPodcastDetail;
   },
-  getPodcastEpisodes: async (id: string) => {
-    const data = await client.get(
-      `http://localhost:3005/api/podcasts/episodes/${id}`
-    );
+  getPodcastEpisodes: async (id: string, domain: string) => {
+    const data = await client.get(`${domain}/api/podcasts/episodes/${id}`);
     return data;
   },
 });

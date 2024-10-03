@@ -97,7 +97,9 @@ describe('PodcastDetail Component', () => {
     render(<PodcastDetail />, { wrapper: MemoryRouter });
 
     expect(mockDispatch).toHaveBeenCalledWith(fetchPodcastDetail('1'));
-    expect(mockDispatch).toHaveBeenCalledWith(fetchPodcastEpisodes('1'));
+    expect(mockDispatch).toHaveBeenCalledWith(
+      fetchPodcastEpisodes({ id: '1', domain: 'localhost.com' })
+    );
   });
 
   it('navigates correctly on episode click', async () => {
