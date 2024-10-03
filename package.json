@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "homepage": "https://mindqe.github.io/gftest",
   "scripts": {
     "start": "node dist/server.cjs",
     "build": "yarn build:client && yarn build:server",
