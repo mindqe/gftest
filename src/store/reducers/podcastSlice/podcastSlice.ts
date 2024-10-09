@@ -70,7 +70,14 @@ const initialState: PodcastState = {
 const podcastSlice = createSlice({
   name: 'podcast',
   initialState,
-  reducers: {},
+  reducers: {
+    hydrate: (state, action: PayloadAction<Partial<PodcastState>>) => {
+      return {
+        ...state,
+        ...(action.payload as any)?.podcastSlice?.podcastSlice,
+      };
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchPodcastList.pending, (state) => {
       state.loadingPodcasts = true;
@@ -128,5 +135,7 @@ const podcastSlice = createSlice({
     });
   },
 });
+
+export const { hydrate } = podcastSlice.actions;
 
 export default podcastSlice.reducer;

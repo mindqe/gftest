@@ -11,29 +11,8 @@ import { Provider } from 'react-redux';
 
 import cache from './cache';
 import { CacheProvider } from '@emotion/react';
-
-// import { USE_SERVICE_WORKER, localStorageAppKey } from "./constants/constants";
-
-// let window: any;
-// const serverPreloadedState =
-//   !isServer && window.__DATA_GFT__ != null
-//     ? window.__PRELOADED_STATE__
-//     : {};
-
-// let preloadedState = {
-//   ...serverPreloadedState,
-// };
-
-// if (isServer == false && localStorage.getItem(localStorageAppKey) != null) {
-//   /*
-//     If it is NO SSR version, we can directly push persisted state
-//     to the preloaded state.
-//     Otherwise, check App.tsx file.
-//   */
-//   preloadedState = {
-//     ...JSON.parse(localStorage.getItem(localStorageAppKey) as string),
-//   };
-// }
+import { clearCache, isCacheValid, loadStateFromLocalStorage } from './store/middlewares/persistOnLocalStorage';
+import { hydrate } from './store/reducers/podcastSlice/podcastSlice';
 
 const store = initStore((window as any).__PRELOADED_STATE__);
 delete (window as any).__PRELOADED_STATE__;
@@ -41,27 +20,13 @@ delete (window as any).__PRELOADED_STATE__;
 if (module.hot != null) {
   module.hot.accept(['./store/store', './store/reducers/rootReducer'], () => {
     (async () => {
-      const { mainReducer } = await import('./store/reducers/rootReducer');
-      store.replaceReducer(mainReducer);
+      const { rootReducer } = await import('./store/reducers/rootReducer')
+      store.replaceReducer(rootReducer as any);
     })()
       .then(() => {})
       .catch((er) => console.log(er));
   });
 }
-
-// if (
-//   USE_SERVICE_WORKER &&
-//   String(process.env.NODE_ENV).trim() !== "development"
-// ) {
-//   const startServiceWorkerPromise = async (): Promise<void> => {
-//     const { startServiceWorker } = await import("./serviceWorker");
-//     startServiceWorker();
-//   };
-
-//   startServiceWorkerPromise()
-//     .then(() => {})
-//     .catch((er) => console.log(er));
-// }
 
 const indexJSX = (
   <StrictMode>
@@ -76,6 +41,18 @@ const indexJSX = (
     </Provider>
   </StrictMode>
 );
+
+let persistedState;
+if (isCacheValid()) {
+  persistedState = loadStateFromLocalStorage() || (window as any).__PRELOADED_STATE__;
+} else {
+  // Clear the cache if the cache is not valid
+  clearCache();
+  persistedState = (window as any).__PRELOADED_STATE__; 
+}
+
+// On initial load, hydrate the store with persisted state
+store.dispatch(hydrate(persistedState));
 
 const container = document.getElementById('root');
 if (container == null) throw new Error('Failed to find the root element');

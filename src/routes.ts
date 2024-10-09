@@ -24,6 +24,7 @@ const routes: Routes[] = [
     exact: true,
     component: Home,
     getInitialData: async (store: any) => {
+      console.log("Navigating to /");
       await store.dispatch(fetchPodcastList());
     },
   },
@@ -33,6 +34,7 @@ const routes: Routes[] = [
     component: PodcastDetail,
     getInitialData: async (store, params, domain) => {
       const { id } = params;
+      console.log("Navigating to /%s", id);
       await store.dispatch(fetchPodcastList());
       await store.dispatch(fetchPodcastDetail(id));
       await store.dispatch(fetchPodcastEpisodes({ id: params['id'], domain }));

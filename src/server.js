@@ -148,14 +148,14 @@ async function startServer() {
     app.use(webpackHotMiddleware(compiler));
   }
 
-  app.get('/', handleRender);
-
+  // 1. Serve static files
   app.use(
     wrapper(
       express.static(PUBLIC_PATH, { index: false, extensions: ['html'] }),
       'public'
     )
   );
+  // 2. Render React for any URL
   app.use('*', handleRender);
 
   app.use((err, req, res, next) => {

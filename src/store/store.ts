@@ -10,7 +10,7 @@ import {
 
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
-import { rootReducer, mainReducer } from './reducers/rootReducer';
+import { rootReducer } from './reducers/rootReducer';
 import { persistStateToLocalStorage } from './middlewares';
 import { useSSR } from 'use-ssr';
 
@@ -22,10 +22,10 @@ const { isServer } = useSSR();
 
 const initStore = (preloadedState?: Partial<RootState>): EnhancedStore =>
   configureStore({
-    reducer: mainReducer,
+    reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(
-        ...(!isServer ? [persistStateToLocalStorage(['podcastSlice'])] : [])
+        ...(!isServer ? [persistStateToLocalStorage([])] : [])
       ),
     preloadedState,
     // devTools: String(process.env.NODE_ENV).trim() !== 'production'
